@@ -21,9 +21,20 @@ ll cal(int pos, int mod1, int mod2, bool fa, bool fb) {
   return ret;
 }
 
+void process() {
+  memset(dp, -1, sizeof dp);
+  int la = a.size(), lb = b.size();
+  string sa = "", sb = "";
+  for(int i = la; i < len; i++) sa += '0';
+  for(int i = lb; i < len; i++) sb += '0';
+  a = sa + a;
+  b = sb + b;
+}
+
 int main()
 {
   int t=1, cs=1; cin >> t;
+  //memset(dp, -1, sizeof dp);
   while(t--) {
     cin >> a >> b >> k;
     cout << "Case " << cs++ << ": ";
@@ -31,13 +42,7 @@ int main()
       cout << 0 << endl;
       continue;
     }
-    memset(dp, -1, sizeof dp);
-    int la = a.size(), lb = b.size();
-    string sa = "", sb = "";
-    for(int i = la; i < len; i++) sa += '0';
-    for(int i = lb; i < len; i++) sb += '0';
-    a = sa + a;
-    b = sb + b;
+    process();
     ll ans = cal(0,0,0,0,0);
     cout << ans << endl;
   }
@@ -54,9 +59,6 @@ Case 1: 20
 Case 2: 5
 Case 3: 64
 */
-
-
-
 
 
 
